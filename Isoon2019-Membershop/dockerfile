@@ -1,0 +1,12 @@
+FROM node:8.0.0
+COPY html /app
+COPY flag /flag
+COPY run.sh /run.sh
+
+RUN set -ex && \
+    chmod 777 /app && \
+    chmod +x /run.sh
+
+WORKDIR /app
+EXPOSE 3000
+ENTRYPOINT ["/run.sh"]
